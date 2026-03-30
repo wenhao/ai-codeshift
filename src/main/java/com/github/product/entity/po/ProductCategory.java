@@ -3,7 +3,7 @@ package com.github.product.entity.po;
 import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import java.time.LocalDateTime;
-import java.sql.JdbcType;
+import org.apache.ibatis.type.JdbcType;
 
 @Data
 @TableName("product_category")
