@@ -9,6 +9,7 @@
         │       └── github
         │           └── wenhao
         │               └── product                 # 后端服务名称
+        │                   ├── XXApplication       # Spring服务启动类
         │                   └── feature_name        # 某个功能根目录，例如category
         │                       ├── common
         │                       │   └── pojo        # 公共POJO类：通用VO/BO/DTO等，全模块共享
