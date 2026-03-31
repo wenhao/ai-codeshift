@@ -9,9 +9,12 @@
         │           └── wenhao
         │               └── product                        # 后端服务名称
         │                   ├── XXApplication              # Spring服务启动类
-        │                   └── exception             
-        │                       ├── BusinessException      # 自定义业务异常，包含错误码与错误消息
-        │                       └── GlobalExceptionHandler # 全局异常处理，至少包含Spring的Bean Validation的异常
+        │                   ├── exception  
+        │                   │   ├── BusinessException      # 自定义业务异常，包含错误码字符串与错误消息
+        │                   │   └── GlobalExceptionHandler # 全局异常处理，至少包含Spring的Bean Validation的异常  
+        │                   └── common
+        │                       └── pojo                   # 公共POJO类：通用VO/BO/DTO等，全模块共享
+        │                           └── CommonResult       # 通用api返回对象，包含code、msg、data(T泛型)
         └── resources
             └── application.yml                            # SpringBoot 项目配置文件：端口、数据库、日志等
 
@@ -69,3 +72,8 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
 ```
+
+# 基础类生成
+- BusinessException：自定义业务异常，包含错误码与错误消息；
+- GlobalExceptionHandler：全局异常处理，至少包含Spring的Bean Validation的异常；
+- CommonResult：通用api返回对象，包含code、msg、data(T泛型)

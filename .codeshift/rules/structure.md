@@ -11,10 +11,11 @@
         │               └── product                   # 后端服务名称
         │                   ├── XXApplication         # Spring服务启动类
         │                   ├── exception             
-        │                   │   ├── BusinessException # 自定义业务异常，包含错误码与错误消息
+        │                   │   ├── BusinessException # 自定义业务异常，包含错误码字符串与错误消息
         │                   │   └── GlobalExceptionHandler # 全局异常处理，至少包含Spring的Bean Validation的异常
         │                   ├── common
         │                   │   └── pojo              # 公共POJO类：通用VO/BO/DTO等，全模块共享
+        │                   │       └── CommonResult  # 通用api返回对象，包含code、msg、data(T泛型)
         │                   └── feature_name          # 某个功能根目录，例如category
         │                       ├── sub-feature1      # 子功能1
         │                       │   ├── controller    # 接口控制层（API入口）
