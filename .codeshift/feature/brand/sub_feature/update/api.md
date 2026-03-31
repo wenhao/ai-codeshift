@@ -20,13 +20,12 @@ PUT
 ### 请求参数（Body）
 | 参数名      | 类型    | 是否必填 | 说明           | 校验说明 |
 |------------|---------|----------|----------------|----------|
-| id         | Long    | 是       | 分类编号（更新必填） | 必填，无注解校验 |
-| parentId   | Long    | 是       | 父分类编号     | @NotNull，校验不通过提示：父分类编号不能为空 |
-| name       | String  | 是       | 分类名称       | @NotBlank，校验不通过提示：分类名称不能为空 |
-| picUrl     | String  | 是       | 移动端分类图   | @NotBlank，校验不通过提示：移动端分类图不能为空 |
-| sort       | Integer | 是       | 分类排序       | 必填，无额外注解校验 |
-| status     | Integer | 是       | 开启状态       | @NotNull，校验不通过提示：开启状态不能为空 |
-| description| String  | 否       | 分类描述       | 无校验 |
+| id         | Long    | 是       | 品牌编号       | @NotNull，校验不通过提示：品牌编号不能为空 |
+| name       | String  | 是       | 品牌名称       | @NotNull，校验不通过提示：品牌名称不能为空 |
+| picUrl     | String  | 是       | 品牌图片       | @NotNull，校验不通过提示：品牌图片不能为空 |
+| sort       | Integer | 是       | 品牌排序       | @NotNull，校验不通过提示：品牌排序不能为空 |
+| status     | Integer | 是       | 状态           | @NotNull，校验不通过提示：状态不能为空 |
+| description| String  | 否       | 品牌描述       | 无校验 |
 
 ### 响应参数
 | 参数名  | 类型    | 说明               |
