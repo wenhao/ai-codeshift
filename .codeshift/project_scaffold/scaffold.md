@@ -47,7 +47,7 @@ project.build.sourceEncoding:UTF-8
 
 
 # Spring服务启动类
-* 生成SpringBootApplication的启动类ProductApplication。
+* 生成SpringBootApplication的启动类ProductApplication仅加上@SpringBootApplication。
 
 # application.yml
 
