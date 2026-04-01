@@ -10,7 +10,7 @@
 # 商品SPU_批量查询(mapper)
 
 ## mapper粒度
-- 独立的商品SPU_批量查询mapper类, ProductSpuBatchListMapper，类名不要改，与ProductFavouritePageMapper放在相同目录(重要)，不要创建通用的数据库操作对象。
+- 独立的商品SPU_批量查询mapper类, ProductSpuBatchListMapper，建在目录favourite/page/mapper/下，不要创建通用的数据库操作对象。
 
 ## 方法描述
 - 根据`商品SPU编号`列表从数据库查询所有`商品SPU(entity)`数据，需查看`spu/entity/product_spu.md`。

@@ -22,7 +22,7 @@ product_spu
 | marketPrice         | Integer         | 无               | 市场价，单位：分（取SKU最低单价）                              |
 | costPrice           | Integer         | 无               | 成本价，单位：分（取SKU最低单价）                              |
 | stock               | Integer         | 无               | 库存（SKU库存求和）                                     |
-| deliveryTypes       | List<Integer>   | @TableField(typeHandler = IntegerListTypeHandler.class) | 配送方式数组，对应DeliveryTypeEnum枚举                     |
+| deliveryTypes       | List<Integer>   | @TableField(typeHandler = JacksonTypeHandler.class) | 配送方式数组，对应DeliveryTypeEnum枚举                     |
 | deliveryTemplateId  | Long            | 无               | 物流配置模板编号                                        |
 | giveIntegral        | Integer         | 无               | 赠送积分                                            |
 | subCommissionType   | Boolean         | 无               | 分销类型：false-默认，true-自行设置                         |
