@@ -17,4 +17,12 @@ public interface ProductSkuPropertyUpdateMapper extends BaseMapper<ProductSku> {
      * @return 更新数量
      */
     int batchUpdate(@Param("list") List<ProductSku> skuList);
+
+    /**
+     * 根据属性项编号查询使用的SKU数量
+     *
+     * @param propertyId 属性项编号
+     * @return 使用数量
+     */
+    Long countByPropertyId(@Param("propertyId") Long propertyId);
 }

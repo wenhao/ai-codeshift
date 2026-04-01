@@ -36,4 +36,11 @@
         </foreach>
     </update>
 
+    <!-- 根据属性项编号查询使用的SKU数量 -->
+    <select id="countByPropertyId" resultType="java.lang.Long">
+        SELECT COUNT(*) FROM product_sku
+        WHERE deleted = 0
+        AND JSON_CONTAINS(properties, JSON_OBJECT('propertyId', #{propertyId}))
+    </select>
+
 </mapper>
