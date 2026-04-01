@@ -1,0 +1,26 @@
+package com.github.wenhao.product.property.update.vo;
+
+import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
+@Data
+@Schema(description = "商品属性项更新请求参数")
+public class ProductPropertyUpdateReqVO implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @NotNull(message = "属性项编号不能为空")
+    @Schema(description = "属性项编号（更新必填）", required = true)
+    private Long id;
+
+    @NotBlank(message = "名称不能为空")
+    @Schema(description = "属性项名称", required = true)
+    private String name;
+
+    @Schema(description = "备注")
+    private String remark;
+}
