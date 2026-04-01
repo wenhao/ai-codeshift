@@ -1,13 +1,13 @@
 # 商品属性项_查询属性项精简列表(api)
 
 ## controller粒度
-- 独立的商品属性项_查询属性项精简列表controller类，ProductPropertySimpleListController。
+- 独立的商品属性项_查询属性项精简列表controller类，ProductPropertySimpleListController，类名不要改。
 
 ### 接口描述
 查询商品属性项精简列表
 
 ### 请求地址
-GET /product/brand/simple-list
+GET /product/brand/simple-list，不要改。
 
 ### 请求方法
 GET

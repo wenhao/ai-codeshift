@@ -1,4 +1,4 @@
-## 商品属性项_查询属性项精简列表(service)
+## 商品属性_查询属性精简信息列表(service)
 
 ## service粒度
 - 独立的商品属性项_查询属性项精简列表service类，ProductPropertySimpleListService。
