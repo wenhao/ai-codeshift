@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.github.wenhao.product.spu.update.mapper.ProductSpuUpdateMapper">
+
+    <resultMap id="ProductCategoryResultMap" type="com.github.wenhao.product.category.entity.po.ProductCategory">
+        <id column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+        <result column="pic_url" property="picUrl"/>
+        <result column="sort" property="sort"/>
+        <result column="status" property="status"/>
+        <result column="description" property="description"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator" property="creator"/>
+        <result column="updater" property="updater"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="ProductBrandResultMap" type="com.github.wenhao.product.brand.entity.po.ProductBrand">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pic_url" property="picUrl"/>
+        <result column="sort" property="sort"/>
+        <result column="description" property="description"/>
+        <result column="status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator" property="creator"/>
+        <result column="updater" property="updater"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="ProductPropertyResultMap" type="com.github.wenhao.product.property.entity.po.ProductProperty">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="remark" property="remark"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator" property="creator"/>
+        <result column="updater" property="updater"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="ProductSkuResultMap" type="com.github.wenhao.product.spu.entity.po.ProductSku">
+        <id column="id" property="id"/>
+        <result column="spu_id" property="spuId"/>
+        <result column="properties" property="properties" typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+        <result column="name" property="name"/>
+        <result column="price" property="price"/>
+        <result column="market_price" property="marketPrice"/>
+        <result column="cost_price" property="costPrice"/>
+        <result column="bar_code" property="barCode"/>
+        <result column="pic_url" property="picUrl"/>
+        <result column="stock" property="stock"/>
+        <result column="weight" property="weight"/>
+        <result column="volume" property="volume"/>
+        <result column="first_brokerage_price" property="firstBrokeragePrice"/>
+        <result column="second_brokerage_price" property="secondBrokeragePrice"/>
+        <result column="sales_count" property="salesCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator" property="creator"/>
+        <result column="updater" property="updater"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+
+    <resultMap id="ProductSpuResultMap" type="com.github.wenhao.product.spu.entity.po.ProductSpu">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="keyword" property="keyword"/>
+        <result column="introduction" property="introduction"/>
+        <result column="description" property="description"/>
+        <result column="category_id" property="categoryId"/>
+        <result column="brand_id" property="brandId"/>
+        <result column="pic_url" property="picUrl"/>
+        <result column="slider_pic_urls" property="sliderPicUrls" typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+        <result column="sort" property="sort"/>
+        <result column="status" property="status"/>
+        <result column="spec_type" property="specType"/>
+        <result column="price" property="price"/>
+        <result column="market_price" property="marketPrice"/>
+        <result column="cost_price" property="costPrice"/>
+        <result column="stock" property="stock"/>
+        <result column="delivery_types" property="deliveryTypes" typeHandler="com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler"/>
+        <result column="delivery_template_id" property="deliveryTemplateId"/>
+        <result column="give_integral" property="giveIntegral"/>
+        <result column="sub_commission_type" property="subCommissionType"/>
+        <result column="sales_count" property="salesCount"/>
+        <result column="virtual_sales_count" property="virtualSalesCount"/>
+        <result column="browse_count" property="browseCount"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="creator" property="creator"/>
+        <result column="updater" property="updater"/>
+        <result column="deleted" property="deleted"/>
+    </resultMap>
+
+    <select id="selectCategoryById" resultMap="ProductCategoryResultMap">
+        SELECT * FROM product_category WHERE id = #{categoryId} AND deleted = 0
+    </select>
+
+    <select id="selectBrandById" resultMap="ProductBrandResultMap">
+        SELECT * FROM product_brand WHERE id = #{brandId} AND deleted = 0
+    </select>
+
+    <select id="selectPropertyByIds" resultMap="ProductPropertyResultMap">
+        SELECT * FROM product_property WHERE id IN
+        <foreach collection="propertyIds" item="id" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+        AND deleted = 0
+    </select>
+
+    <select id="selectSkuBySpuId" resultMap="ProductSkuResultMap">
+        SELECT * FROM product_sku WHERE spu_id = #{spuId} AND deleted = 0
+    </select>
+
+    <select id="selectSpuById" resultMap="ProductSpuResultMap">
+        SELECT * FROM product_spu WHERE id = #{id} AND deleted = 0
+    </select>
+
+    <insert id="batchInsertSku" parameterType="java.util.List">
+        INSERT INTO product_sku (spu_id, properties, name, price, market_price, cost_price, bar_code, pic_url, stock,
+                                  weight, volume, first_brokerage_price, second_brokerage_price, sales_count,
+                                  create_time, update_time, creator, updater, deleted)
+        VALUES
+        <foreach collection="skuList" item="sku" separator=",">
+            (#{sku.spuId}, #{sku.properties}, #{sku.name}, #{sku.price}, #{sku.marketPrice}, #{sku.costPrice},
+             #{sku.barCode}, #{sku.picUrl}, #{sku.stock}, #{sku.weight}, #{sku.volume},
+             #{sku.firstBrokeragePrice}, #{sku.secondBrokeragePrice}, #{sku.salesCount},
+             NOW(), NOW(), #{sku.creator}, #{sku.updater}, 0)
+        </foreach>
+    </insert>
+
+    <update id="batchUpdateSku" parameterType="java.util.List">
+        <foreach collection="skuList" item="sku" separator=";">
+            UPDATE product_sku
+            SET spu_id = #{sku.spuId},
+                properties = #{sku.properties},
+                name = #{sku.name},
+                price = #{sku.price},
+                market_price = #{sku.marketPrice},
+                cost_price = #{sku.costPrice},
+                bar_code = #{sku.barCode},
+                pic_url = #{sku.picUrl},
+                stock = #{sku.stock},
+                weight = #{sku.weight},
+                volume = #{sku.volume},
+                first_brokerage_price = #{sku.firstBrokeragePrice},
+                second_brokerage_price = #{sku.secondBrokeragePrice},
+                sales_count = #{sku.salesCount},
+                update_time = NOW(),
+                updater = #{sku.updater}
+            WHERE id = #{sku.id} AND deleted = 0
+        </foreach>
+    </update>
+
+    <delete id="deleteSkuById">
+        UPDATE product_sku SET deleted = 1, update_time = NOW() WHERE id = #{skuId} AND deleted = 0
+    </delete>
+
+</mapper>
