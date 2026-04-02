@@ -1,7 +1,7 @@
 # 商品评价_回复(api)
 
 ## controller粒度
-- 独立的商品评论_回复Controller类，ProductCommentReplyController
+- 独立的商品评论_回复Controller类，ProductCommentReplyController。
 
 ### 接口描述
 商家回复商品评价
