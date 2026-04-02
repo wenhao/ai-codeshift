@@ -1,6 +1,6 @@
 # 商品评价_创建(API)
 ## Controller粒度
-* 独立的商品评价_创建Controller类，ProductCommentCreateController
+- 独立的商品评价_创建Controller类，ProductCommentCreateController
 
 ### 接口描述
 创建商品评价
