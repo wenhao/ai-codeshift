@@ -3,11 +3,7 @@ package com.github.wenhao.product.brand.create.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.github.wenhao.product.brand.entity.po.ProductBrand;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
 
-/**
- * 商品品牌创建Mapper
- */
 @Mapper
 public interface ProductBrandCreateMapper extends BaseMapper<ProductBrand> {
 
@@ -17,5 +13,5 @@ public interface ProductBrandCreateMapper extends BaseMapper<ProductBrand> {
      * @param name 品牌名称
      * @return 品牌信息
      */
-    ProductBrand selectByName(@Param("name") String name);
+    ProductBrand selectByName(String name);
 }

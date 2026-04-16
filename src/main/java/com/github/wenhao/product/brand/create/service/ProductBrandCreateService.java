@@ -3,7 +3,7 @@ package com.github.wenhao.product.brand.create.service;
 import com.github.wenhao.product.brand.create.vo.ProductBrandCreateReqVO;
 
 /**
- * 商品品牌创建服务接口
+ * 商品品牌创建Service接口
  */
 public interface ProductBrandCreateService {
 
